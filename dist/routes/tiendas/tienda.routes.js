@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const tienda_controller_1 = require("../../controllers/tiendas/tienda.controller");
+const tiendaRouter = (0, express_1.Router)();
+const tiendaController = new tienda_controller_1.TiendasController();
+tiendaRouter.get('/', (req, res, next) => tiendaController.listarTiendas(req, res, next));
+tiendaRouter.get('/:id', (req, res, next) => tiendaController.obtenerTienda(req, res, next));
+tiendaRouter.post('/', (req, res, next) => tiendaController.crearTienda(req, res, next));
+tiendaRouter.put('/:id', (req, res, next) => tiendaController.actualizarTienda(req, res, next));
+tiendaRouter.delete('/:id', (req, res, next) => tiendaController.eliminarTienda(req, res, next));
+exports.default = tiendaRouter;
