@@ -3,6 +3,7 @@ import estudiantesRouter from './estudiantes/estudiantes.routes';
 import notasRouter from './notas/notas.routes';
 import tiendaRouter from './tiendas/tienda.routes';
 import productoRouter from './productos/producto.routes';
+import authRouter from './auth/auth.routes';
 
 const router = Router();
 
@@ -36,6 +37,7 @@ router.get('/test', (req, res) => {
 // another routes
 router.use('/tienda', tiendaRouter);
 router.use('/producto', productoRouter);
+router.use('/auth', authRouter);
 
 
 export default router;

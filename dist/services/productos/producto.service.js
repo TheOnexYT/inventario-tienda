@@ -32,5 +32,16 @@ class ProductoService {
             throw (0, http_errors_1.default)(500, error.message);
         }
     }
+    async asociarTienda(productoId, tiendaId) {
+        try {
+            const producto = await Producto_1.Producto.findByIdAndUpdate(productoId, { tienda: tiendaId }, { new: true });
+            if (!producto)
+                throw (0, http_errors_1.default)(404, 'Producto no encontrado');
+            return producto;
+        }
+        catch (error) {
+            throw (0, http_errors_1.default)(500, error.message);
+        }
+    }
 }
 exports.ProductoService = ProductoService;

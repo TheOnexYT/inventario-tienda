@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const tienda_routes_1 = __importDefault(require("./tiendas/tienda.routes"));
 const producto_routes_1 = __importDefault(require("./productos/producto.routes"));
+const auth_routes_1 = __importDefault(require("./auth/auth.routes"));
 const router = (0, express_1.Router)();
 /**
  * @swagger
@@ -35,4 +36,5 @@ router.get('/test', (req, res) => {
 // another routes
 router.use('/tienda', tienda_routes_1.default);
 router.use('/producto', producto_routes_1.default);
+router.use('/auth', auth_routes_1.default);
 exports.default = router;

@@ -33,5 +33,14 @@ class ProductoController {
             next(err);
         }
     }
+    async asociarTienda(req, res, next) {
+        try {
+            const producto = await this.productoService.asociarTienda(req.params.id, req.body.tiendaId);
+            res.json(producto);
+        }
+        catch (err) {
+            next(err);
+        }
+    }
 }
 exports.ProductoController = ProductoController;

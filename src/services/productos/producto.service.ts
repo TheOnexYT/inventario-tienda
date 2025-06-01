@@ -26,5 +26,21 @@ export class ProductoService {
       throw createError(500, error.message);
     }
   }
+
+  async asociarTienda(productoId: string, tiendaId: string) {
+  try {
+    const producto = await Producto.findByIdAndUpdate(
+      productoId,
+      { tienda: tiendaId },
+      { new: true }
+    );
+    if (!producto) throw createError(404, 'Producto no encontrado');
+    return producto;
+  } catch (error: any) {
+    throw createError(500, error.message);
+  }
+}
+
+
   
 }
